@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Visualizer & Estimator Tools | Paul's Painting - Wakefield, MA</title>
+  <meta name="description" content="Try our Color Visualizer — upload a photo and preview Sherwin-Williams colors. Plus instant cost estimator and ROI calculator.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="features.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">&#9964;</span>
+        <div class="logo-text">
+          <span class="logo-name">Paul's Painting</span>
+          <span class="logo-tagline">Wakefield, MA</span>
+        </div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="tools.html" class="active">Tools</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="tel:7812541192" class="nav-cta">Call Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Interactive Tools</h1>
+      <p>Visualize colors, estimate costs, and calculate your painting ROI</p>
+    </div>
+  </section>
+
+  <!-- Tool Tabs -->
+  <div class="tool-tabs-bar">
+    <div class="container">
+      <div class="tool-tabs" id="toolTabs">
+        <button class="tool-tab active" data-target="visualizer">&#127912; Color Visualizer</button>
+        <button class="tool-tab" data-target="estimator">&#9998; Cost Estimator</button>
+        <button class="tool-tab" data-target="roi">&#128200; ROI Calculator</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Color Visualizer -->
+  <section class="section visualizer-section tool-panel active" id="visualizer">
+    <div class="container">
+      <div class="section-header">
+        <h2>Color Visualizer</h2>
+        <p>Upload a photo of your property and see it in a new color. Powered by the Sherwin-Williams palette.</p>
+      </div>
+
+      <div class="visualizer-wrapper">
+        <!-- Upload Area -->
+        <div class="upload-area" id="uploadArea">
+          <div class="upload-content">
+            <div class="upload-icon">&#128247;</div>
+            <h3>Upload or Take a Photo</h3>
+            <p>Drag & drop an image of your home, or click to browse</p>
+            <div class="upload-buttons">
+              <label class="btn btn-primary" for="fileInput">Choose Photo</label>
+              <label class="btn btn-outline" for="cameraInput">Take Photo</label>
+            </div>
+            <input type="file" id="fileInput" accept="image/*" hidden>
+            <input type="file" id="cameraInput" accept="image/*" capture="environment" hidden>
+            <p class="upload-hint">Supports JPG, PNG. Best results with clear, well-lit photos.</p>
+          </div>
+        </div>
+
+        <!-- Editor Area -->
+        <div class="editor-area" id="editorArea" style="display:none;">
+          <div class="editor-layout">
+            <div class="canvas-panel">
+              <div class="editor-toolbar">
+                <button class="tool-btn active" id="btnSelect" title="Select area to paint">
+                  <span>&#9997;</span> Paint Area
+                </button>
+                <button class="tool-btn" id="btnUndo" title="Undo last action">
+                  <span>&#8617;</span> Undo
+                </button>
+                <button class="tool-btn" id="btnReset" title="Reset to original">
+                  <span>&#8634;</span> Reset
+                </button>
+                <button class="tool-btn" id="btnNewPhoto" title="Upload new photo">
+                  <span>&#128247;</span> New Photo
+                </button>
+                <div class="tolerance-control">
+                  <label for="toleranceSlider">Sensitivity:</label>
+                  <input type="range" id="toleranceSlider" min="5" max="80" value="32">
+                </div>
+              </div>
+              <div class="canvas-container" id="canvasContainer">
+                <canvas id="mainCanvas"></canvas>
+                <div class="canvas-instructions" id="canvasInstructions">
+                  Click on an area of the house to paint it with the selected color.
+                  Adjust sensitivity to select more or less area.
+                </div>
+              </div>
+            </div>
+
+            <div class="color-panel">
+              <div class="color-panel-header">
+                <h3>Sherwin-Williams Colors</h3>
+                <div class="color-search-wrapper">
+                  <input type="text" id="colorSearch" placeholder="Search colors..." class="color-search">
+                </div>
+              </div>
+
+              <div class="color-categories" id="colorCategories">
+                <button class="cat-btn active" data-category="all">All</button>
+                <button class="cat-btn" data-category="white">Whites</button>
+                <button class="cat-btn" data-category="gray">Grays</button>
+                <button class="cat-btn" data-category="beige">Beige/Tan</button>
+                <button class="cat-btn" data-category="blue">Blues</button>
+                <button class="cat-btn" data-category="green">Greens</button>
+                <button class="cat-btn" data-category="red">Reds</button>
+                <button class="cat-btn" data-category="yellow">Yellows</button>
+                <button class="cat-btn" data-category="brown">Browns</button>
+                <button class="cat-btn" data-category="black">Dark/Black</button>
+              </div>
+
+              <div class="selected-color-display" id="selectedColorDisplay">
+                <div class="selected-swatch" id="selectedSwatch"></div>
+                <div class="selected-info">
+                  <span class="selected-name" id="selectedName">Select a color</span>
+                  <span class="selected-code" id="selectedCode">SW ----</span>
+                </div>
+              </div>
+
+              <div class="color-grid" id="colorGrid"></div>
+            </div>
+          </div>
+
+          <div class="download-bar">
+            <button class="btn btn-primary" id="btnDownload">
+              <span>&#11015;</span> Download Preview
+            </button>
+            <a href="tel:7812541192" class="btn btn-accent">
+              <span>&#9742;</span> Call to Get This Color — 781-254-1192
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cost Estimator -->
+  <section class="section estimator-section tool-panel" id="estimator">
+    <div class="container">
+      <div class="section-header">
+        <h2>Instant Cost Estimator</h2>
+        <p>Get a ballpark price for your project in 60 seconds</p>
+      </div>
+      <div class="estimator-wrapper">
+        <div class="estimator-header">
+          <h3>Exterior Painting Estimate</h3>
+          <div class="step-indicators">
+            <span class="step-indicator active">1</span>
+            <span class="step-indicator">2</span>
+            <span class="step-indicator">3</span>
+            <span class="step-indicator">4</span>
+          </div>
+        </div>
+
+        <form id="estimatorForm" onsubmit="return false">
+          <div class="estimator-body">
+            <div class="est-step active">
+              <h4>How big is your home?</h4>
+              <p>Select the closest match to your property size.</p>
+              <div class="est-options cols-2">
+                <div class="est-option">
+                  <input type="radio" name="homeSize" id="sizeSmall" value="small">
+                  <label for="sizeSmall">
+                    <span class="est-option-icon">&#127968;</span>
+                    <span class="est-option-title">Small</span>
+                    <span class="est-option-desc">Under 1,500 sq ft</span>
+                  </label>
+                </div>
+                <div class="est-option">
+                  <input type="radio" name="homeSize" id="sizeMedium" value="medium" checked>
+                  <label for="sizeMedium">
+                    <span class="est-option-icon">&#127969;</span>
+                    <span class="est-option-title">Medium</span>
+                    <span class="est-option-desc">1,500 - 2,500 sq ft</span>
+                  </label>
+                </div>
+                <div class="est-option">
+                  <input type="radio" name="homeSize" id="sizeLarge" value="large">
+                  <label for="sizeLarge">
+                    <span class="est-option-icon">&#127970;</span>
+                    <span class="est-option-title">Large</span>
+                    <span class="est-option-desc">2,500 - 4,000 sq ft</span>
+                  </label>
+                </div>
+                <div class="est-option">
+                  <input type="radio" name="homeSize" id="sizeXL" value="xlarge">
+                  <label for="sizeXL">
+                    <span class="est-option-icon">&#127960;</span>
+                    <span class="est-option-title">Extra Large</span>
+                    <span class="est-option-desc">Over 4,000 sq ft</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="est-step">
+              <h4>Property Details</h4>
+              <p>Tell us about the structure and siding type.</p>
+              <div class="est-options cols-3" style="margin-bottom:16px">
+                <div class="est-option">
+                  <input type="radio" name="stories" id="story1" value="1" checked>
+                  <label for="story1"><span class="est-option-title">1 Story</span><span class="est-option-desc">Ranch / Cape</span></label>
+                </div>
+                <div class="est-option">
+                  <input type="radio" name="stories" id="story2" value="2">
+                  <label for="story2"><span class="est-option-title">2 Stories</span><span class="est-option-desc">Colonial / Split</span></label>
+                </div>
+                <div class="est-option">
+                  <input type="radio" name="stories" id="story3" value="3">
+                  <label for="story3"><span class="est-option-title">3 Stories</span><span class="est-option-desc">Victorian / Multi</span></label>
+                </div>
+              </div>
+              <label style="display:block;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.85rem;margin-bottom:6px">Siding Type</label>
+              <select id="sidingType" class="est-select">
+                <option value="clapboard">Wood Clapboard</option>
+                <option value="vinyl">Vinyl Siding</option>
+                <option value="shingle">Cedar Shingle</option>
+                <option value="stucco">Stucco</option>
+                <option value="brick">Brick</option>
+                <option value="wood">Natural Wood</option>
+              </select>
+            </div>
+
+            <div class="est-step">
+              <h4>What's included?</h4>
+              <p>Check everything you'd like painted.</p>
+              <div class="est-checkboxes">
+                <label class="est-checkbox"><input type="checkbox" id="includeTrim" checked><span>Trim, fascia & soffits</span></label>
+                <label class="est-checkbox"><input type="checkbox" id="includeShutters"><span>Shutters</span></label>
+                <label class="est-checkbox"><input type="checkbox" id="includeDoors"><span>Doors & garage door</span></label>
+                <label class="est-checkbox"><input type="checkbox" id="includeDeck"><span>Deck or porch</span></label>
+              </div>
+            </div>
+
+            <div class="est-step">
+              <h4>Condition & Paint Quality</h4>
+              <p>Current condition affects prep time. Paint quality affects durability.</p>
+              <label style="display:block;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.85rem;margin-bottom:8px">Current Condition</label>
+              <div class="est-options cols-3" style="margin-bottom:20px">
+                <div class="est-option">
+                  <input type="radio" name="condition" id="condGood" value="good">
+                  <label for="condGood"><span class="est-option-title">Good</span><span class="est-option-desc">Minor touch-up needed</span></label>
+                </div>
+                <div class="est-option">
+                  <input type="radio" name="condition" id="condFair" value="fair" checked>
+                  <label for="condFair"><span class="est-option-title">Fair</span><span class="est-option-desc">Some peeling/fading</span></label>
+                </div>
+                <div class="est-option">
+                  <input type="radio" name="condition" id="condPoor" value="poor">
+                  <label for="condPoor"><span class="est-option-title">Needs Work</span><span class="est-option-desc">Heavy peeling/damage</span></label>
+                </div>
+              </div>
+              <label style="display:block;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.85rem;margin-bottom:8px">Paint Quality</label>
+              <div class="est-options cols-3">
+                <div class="est-option">
+                  <input type="radio" name="quality" id="qualStd" value="standard">
+                  <label for="qualStd"><span class="est-option-title">Standard</span><span class="est-option-desc">5-7 year life</span></label>
+                </div>
+                <div class="est-option">
+                  <input type="radio" name="quality" id="qualPrem" value="premium" checked>
+                  <label for="qualPrem"><span class="est-option-title">Premium</span><span class="est-option-desc">8-12 year life</span></label>
+                </div>
+                <div class="est-option">
+                  <input type="radio" name="quality" id="qualUltra" value="ultra">
+                  <label for="qualUltra"><span class="est-option-title">Ultra-Premium</span><span class="est-option-desc">12-15+ year life</span></label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="estimator-nav">
+            <button type="button" class="btn btn-outline" id="estPrev" style="display:none"><span>&#8592;</span> Back</button>
+            <button type="button" class="btn btn-primary" id="estNext">Next <span>&#8594;</span></button>
+          </div>
+        </form>
+
+        <div class="est-result" id="estResult">
+          <h3>Your Estimated Price Range</h3>
+          <div class="est-result-amount">
+            $<span id="estLow">0</span><span class="est-sep">-</span>$<span id="estHigh">0</span>
+          </div>
+          <p>This is a ballpark estimate. Your exact price depends on specific conditions we'll assess during a free in-person visit.</p>
+          <div class="est-result-details">
+            <h4>Your Selections</h4>
+            <ul id="estDetails"></ul>
+          </div>
+          <div class="est-result-actions">
+            <a href="tel:7812541192" class="btn btn-primary btn-lg"><span>&#9742;</span> Get Exact Quote — 781-254-1192</a>
+            <button class="btn btn-outline" id="estReset">Recalculate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI Calculator -->
+  <section class="section roi-section tool-panel" id="roi">
+    <div class="container">
+      <div class="section-header">
+        <h2>What's Your Paint Worth?</h2>
+        <p>See how exterior painting increases your home's value</p>
+      </div>
+      <div class="roi-wrapper">
+        <div class="roi-form">
+          <div class="roi-inputs">
+            <div class="roi-input-group">
+              <label for="roiHomeValue">Estimated Home Value</label>
+              <input type="text" id="roiHomeValue" placeholder="$350,000" value="$350,000">
+            </div>
+            <div class="roi-input-group">
+              <label>Current Exterior Condition</label>
+              <div class="roi-condition-options">
+                <div class="roi-condition-opt"><input type="radio" name="roiCondition" id="roiGood" value="good"><label for="roiGood">Good</label></div>
+                <div class="roi-condition-opt"><input type="radio" name="roiCondition" id="roiFair" value="fair" checked><label for="roiFair">Fair</label></div>
+                <div class="roi-condition-opt"><input type="radio" name="roiCondition" id="roiPoor" value="poor"><label for="roiPoor">Poor</label></div>
+              </div>
+            </div>
+            <div class="roi-input-group">
+              <label for="roiYears">Years Since Last Paint</label>
+              <select id="roiYears">
+                <option value="2">1-3 years</option>
+                <option value="5" selected>4-6 years</option>
+                <option value="8">7-10 years</option>
+                <option value="12">10+ years</option>
+                <option value="20">Never / Unknown</option>
+              </select>
+            </div>
+          </div>
+          <div class="roi-calc-btn">
+            <button class="btn btn-primary btn-lg" id="roiCalculate">Calculate My Home's Paint ROI</button>
+          </div>
+        </div>
+
+        <div class="roi-result" id="roiResult">
+          <div class="roi-result-header">
+            <h3>Estimated Value Increase</h3>
+            <div class="roi-big-number">
+              $<span id="roiValueLow">0</span><span class="roi-sep">-</span>$<span id="roiValueHigh">0</span>
+            </div>
+            <p class="roi-subtitle">Estimated painting cost: <span id="roiCostRange">$0</span></p>
+          </div>
+          <div class="roi-stats">
+            <div class="roi-stat"><div class="roi-stat-value"><span id="roiPct">0</span>%</div><div class="roi-stat-label">Return on Investment</div></div>
+            <div class="roi-stat"><div class="roi-stat-value"><span id="roiDom">0</span></div><div class="roi-stat-label">Fewer Days on Market</div></div>
+            <div class="roi-stat"><div class="roi-stat-value">#1</div><div class="roi-stat-label">ROI Home Improvement</div></div>
+          </div>
+          <div class="roi-comparison">
+            <h4>How Painting Compares to Other Improvements</h4>
+            <div class="roi-bar-group">
+              <div class="roi-bar-label"><span>Exterior Painting</span><span id="barPaintLabel">--% ROI</span></div>
+              <div class="roi-bar-track"><div class="roi-bar-fill paint" id="barPaint" style="width:0%"></div></div>
+            </div>
+            <div class="roi-bar-group">
+              <div class="roi-bar-label"><span>Landscaping</span><span>90% ROI</span></div>
+              <div class="roi-bar-track"><div class="roi-bar-fill landscape" id="barLandscape" style="width:0%"></div></div>
+            </div>
+            <div class="roi-bar-group">
+              <div class="roi-bar-label"><span>Minor Kitchen Remodel</span><span>71% ROI</span></div>
+              <div class="roi-bar-track"><div class="roi-bar-fill kitchen" id="barKitchen" style="width:0%"></div></div>
+            </div>
+            <div class="roi-bar-group">
+              <div class="roi-bar-label"><span>New Windows</span><span>67% ROI</span></div>
+              <div class="roi-bar-track"><div class="roi-bar-fill windows" id="barWindows" style="width:0%"></div></div>
+            </div>
+          </div>
+          <div class="roi-cta">
+            <a href="tel:7812541192" class="btn btn-primary btn-lg"><span>&#9742;</span> Increase Your Home's Value — Call 781-254-1192</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="logo-icon">&#9964;</span>
+          <div><strong>Paul's Painting</strong><span>Wakefield, Massachusetts</span></div>
+        </div>
+        <div class="footer-nav">
+          <a href="index.html">Home</a><a href="services.html">Services</a><a href="tools.html">Tools</a>
+          <a href="gallery.html">Gallery</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-contact"><a href="tel:7812541192">781-254-1192</a><span>Butternut Road, Wakefield, MA 01880</span></div>
+        <div class="footer-copy">&copy; 2026 Paul's Painting. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="sticky-bar" id="stickyBar">
+    <a href="tel:7812541192" class="sticky-btn sticky-btn-call"><span class="sticky-btn-icon">&#9742;</span> Call 781-254-1192</a>
+    <a href="sms:7812541192" class="sticky-btn sticky-btn-text"><span class="sticky-btn-icon">&#128172;</span> Text Us</a>
+  </div>
+
+  <script src="colors.js"></script>
+  <script src="nav.js"></script>
+  <script src="app.js"></script>
+  <script src="features.js"></script>
+  <script>
+    // Tool tabs switching
+    document.querySelectorAll('.tool-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.tool-tab').forEach(function(t) { t.classList.remove('active'); });
+        document.querySelectorAll('.tool-panel').forEach(function(p) { p.classList.remove('active'); });
+        tab.classList.add('active');
+        var target = document.getElementById(tab.dataset.target);
+        if (target) target.classList.add('active');
+      });
+    });
+    // Deep link to specific tool
+    if (window.location.hash) {
+      var hash = window.location.hash.substring(1);
+      var tabBtn = document.querySelector('.tool-tab[data-target="' + hash + '"]');
+      if (tabBtn) tabBtn.click();
+    }
+  </script>
+</body>
+</html>

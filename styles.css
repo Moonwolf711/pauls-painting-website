@@ -107,6 +107,11 @@ a { text-decoration: none; color: inherit; }
   font-size: 1.05rem;
 }
 
+.btn-sm {
+  padding: 8px 18px;
+  font-size: 0.85rem;
+}
+
 .btn-full { width: 100%; }
 
 .btn-icon { font-size: 1.1em; }
@@ -188,6 +193,15 @@ a { text-decoration: none; color: inherit; }
 .navbar.scrolled .nav-links li a:hover {
   background: var(--bg-light);
   color: var(--primary);
+}
+
+.nav-links li a.active {
+  background: var(--primary);
+  color: #fff !important;
+}
+.navbar.scrolled .nav-links li a.active {
+  background: var(--primary);
+  color: #fff !important;
 }
 
 .nav-cta {
@@ -1087,4 +1101,93 @@ a.contact-value:hover { color: var(--primary); }
 }
 .color-grid::-webkit-scrollbar-thumb:hover {
   background: var(--text-muted);
+}
+
+/* ── Page Header (non-hero pages) ── */
+.page-header {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+  color: #fff;
+  padding: 120px 0 48px;
+  text-align: center;
+}
+.page-header h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+.page-header p {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ── Tool Tabs Bar ── */
+.tool-tabs-bar {
+  background: #fff;
+  border-bottom: 2px solid var(--border);
+  position: sticky;
+  top: 60px;
+  z-index: 100;
+}
+.tool-tabs {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+}
+.tool-tab {
+  flex: 1;
+  padding: 16px 24px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+.tool-tab:hover {
+  color: var(--primary);
+  background: var(--bg-light);
+}
+.tool-tab.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+  background: var(--bg-light);
+}
+
+/* Tool Panels — show/hide */
+.tool-panel { display: none; }
+.tool-panel.active { display: block; }
+
+/* ── Footer Nav ── */
+.footer-nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.footer-nav a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  transition: color var(--transition);
+}
+.footer-nav a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .tool-tabs-bar { top: 56px; }
+  .tool-tab { padding: 12px 16px; font-size: 0.82rem; }
+  .page-header { padding: 100px 0 36px; }
+  .footer-nav { gap: 12px; }
+}
+
+@media (max-width: 480px) {
+  .tool-tab { font-size: 0.75rem; padding: 10px 12px; }
 }
