@@ -9,11 +9,11 @@
   <link rel="stylesheet" href="features.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800&family=Young+Serif&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Navigation -->
-  <nav class="navbar scrolled" id="navbar">
+  <nav class="navbar" id="navbar">
     <div class="container nav-container">
       <a href="index.html" class="logo">
         <span class="logo-icon">&#9964;</span>
@@ -37,38 +37,71 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero" id="home">
     <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <h1>Transform Your Property<br>With Expert Painting</h1>
-      <p class="hero-subtitle">Professional exterior painting for homes and businesses in Wakefield, MA and surrounding communities. Quality craftsmanship since day one.</p>
-      <div class="hero-actions">
-        <a href="tel:7812541192" class="btn btn-primary btn-lg">
-          <span class="btn-icon">&#9742;</span> Call 781-254-1192
-        </a>
-        <a href="tools.html" class="btn btn-outline btn-lg">Try Color Visualizer</a>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="hero-tag">Exterior Painting Specialists</div>
+        <h1>Transform Your<br>Property With<br><em>Expert Painting</em></h1>
+        <p class="hero-subtitle">Professional exterior painting for homes and businesses in Wakefield, MA. Premium Sherwin-Williams paints, meticulous preparation, results that last.</p>
+        <div class="hero-actions">
+          <a href="tel:7812541192" class="btn btn-gold btn-lg">
+            <span class="btn-icon">&#9742;</span> Call 781-254-1192
+          </a>
+          <a href="tools.html" class="btn btn-ghost btn-lg">Try Color Visualizer</a>
+        </div>
       </div>
-      <div class="hero-badges">
-        <div class="badge">&#10003; Licensed & Insured</div>
-        <div class="badge">&#10003; Free Estimates</div>
-        <div class="badge">&#10003; Local Since Day 1</div>
+      <div class="hero-visual">
+        <div class="paint-chips">
+          <div class="paint-chip" style="--chip:#B8B3A8;--delay:0.5s;--rot:rotate(-5deg)">
+            <div class="chip-color" style="background:#B8B3A8"></div>
+            <div class="chip-label"><span>Repose Gray</span><small>SW 7015</small></div>
+          </div>
+          <div class="paint-chip" style="--chip:#2E3441;--delay:0.7s;--rot:rotate(4deg)">
+            <div class="chip-color" style="background:#2E3441"></div>
+            <div class="chip-label"><span>Naval</span><small>SW 6244</small></div>
+          </div>
+          <div class="paint-chip" style="--chip:#95978B;--delay:0.9s;--rot:rotate(-2deg)">
+            <div class="chip-color" style="background:#95978B"></div>
+            <div class="chip-label"><span>Evergreen Fog</span><small>SW 9130</small></div>
+          </div>
+          <div class="paint-chip" style="--chip:#EDEADF;--delay:1.1s;--rot:rotate(6deg)">
+            <div class="chip-color" style="background:#EDEADF"></div>
+            <div class="chip-label"><span>Alabaster</span><small>SW 7008</small></div>
+          </div>
+          <div class="paint-chip" style="--chip:#F1F0E9;--delay:1.3s;--rot:rotate(-4deg)">
+            <div class="chip-color" style="background:#F1F0E9"></div>
+            <div class="chip-label"><span>Extra White</span><small>SW 7006</small></div>
+          </div>
+        </div>
       </div>
+    </div>
+    <div class="hero-badges">
+      <div class="badge"><span class="badge-dot"></span> Licensed & Insured</div>
+      <div class="badge"><span class="badge-dot"></span> Free Estimates</div>
+      <div class="badge"><span class="badge-dot"></span> Wakefield Local</div>
+    </div>
+    <div class="hero-divider">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,60 C180,80 360,20 540,40 C720,60 900,25 1080,45 C1200,58 1320,30 1440,50 L1440,80 L0,80 Z" fill="#2E3441"/>
+        <path d="M0,65 C200,40 400,75 600,55 C800,35 1000,70 1200,50 C1320,42 1380,60 1440,55 L1440,80 L0,80 Z" fill="var(--bg)"/>
+      </svg>
     </div>
   </section>
 
   <!-- Paintability Forecast -->
   <section class="section forecast-section" id="forecast">
     <div class="container">
-      <div class="section-header">
-        <h2>Wakefield Paint Weather Forecast</h2>
+      <div class="section-header reveal">
+        <h2>Wakefield Paint Weather</h2>
         <p>Is this week good for exterior painting? Check the 7-day paintability index.</p>
       </div>
-      <div class="forecast-urgency">
+      <div class="forecast-urgency reveal reveal-d1">
         Only <strong id="idealDaysCount">--</strong> ideal painting days left this season!
       </div>
-      <div class="forecast-grid" id="forecastGrid"></div>
-      <div class="forecast-cta">
+      <div class="forecast-grid reveal reveal-d2" id="forecastGrid"></div>
+      <div class="forecast-cta reveal reveal-d3">
         <a href="tel:7812541192" class="btn btn-accent btn-lg">Book Your Spot Before Winter — 781-254-1192</a>
       </div>
     </div>
@@ -77,12 +110,12 @@
   <!-- Services Overview -->
   <section class="section services-section" id="services">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2>Our Services</h2>
         <p>Comprehensive exterior painting for every type of property</p>
       </div>
       <div class="services-grid">
-        <div class="service-card">
+        <div class="service-card reveal reveal-d1">
           <div class="service-icon">&#127968;</div>
           <h3>Residential Exterior</h3>
           <p>Complete home exterior painting including siding, trim, shutters, doors, and decks. We prep surfaces properly so the paint lasts for years.</p>
@@ -94,7 +127,7 @@
             <li>Garage doors</li>
           </ul>
         </div>
-        <div class="service-card">
+        <div class="service-card reveal reveal-d2">
           <div class="service-icon">&#127970;</div>
           <h3>Commercial Exterior</h3>
           <p>Professional painting for storefronts, office buildings, multi-family units, and industrial properties. Minimal disruption to your business.</p>
@@ -106,7 +139,7 @@
             <li>Property management</li>
           </ul>
         </div>
-        <div class="service-card">
+        <div class="service-card reveal reveal-d3">
           <div class="service-icon">&#128296;</div>
           <h3>Surface Preparation</h3>
           <p>Proper prep is the foundation of a lasting paint job. We never cut corners on preparation — it's what separates a good job from a great one.</p>
@@ -118,7 +151,7 @@
             <li>Wood rot repair</li>
           </ul>
         </div>
-        <div class="service-card">
+        <div class="service-card reveal reveal-d4">
           <div class="service-icon">&#127912;</div>
           <h3>Color Consultation</h3>
           <p>Not sure what color to pick? We'll help you choose the perfect palette that complements your property's architecture and the neighborhood.</p>
@@ -127,11 +160,11 @@
             <li>On-site color matching</li>
             <li>Neighborhood harmony</li>
             <li>Trend-aware guidance</li>
-            <li><a href="tools.html" style="color:var(--primary);font-weight:600">Try our Color Visualizer!</a></li>
+            <li><a href="tools.html" style="color:var(--accent);font-weight:600">Try our Color Visualizer!</a></li>
           </ul>
         </div>
       </div>
-      <div style="text-align:center;margin-top:32px">
+      <div style="text-align:center;margin-top:36px" class="reveal">
         <a href="services.html" class="btn btn-primary">View All Services & Specialty Coatings</a>
       </div>
     </div>
@@ -140,27 +173,27 @@
   <!-- Why Choose Us -->
   <section class="section why-section">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2>Why Choose Paul's Painting</h2>
         <p>Experience the difference that quality craftsmanship makes</p>
       </div>
       <div class="why-grid">
-        <div class="why-card">
+        <div class="why-card reveal reveal-d1">
           <div class="why-number">01</div>
           <h3>Meticulous Preparation</h3>
           <p>We spend the time to properly prep every surface — power washing, scraping, sanding, caulking, and priming. No shortcuts.</p>
         </div>
-        <div class="why-card">
+        <div class="why-card reveal reveal-d2">
           <div class="why-number">02</div>
           <h3>Premium Materials</h3>
           <p>We use Sherwin-Williams paints and top-quality primers. Better materials mean a better finish that lasts longer.</p>
         </div>
-        <div class="why-card">
+        <div class="why-card reveal reveal-d3">
           <div class="why-number">03</div>
           <h3>Clean Job Sites</h3>
           <p>We respect your property. Drop cloths, careful masking, daily cleanup, and a final walkthrough to make sure everything is perfect.</p>
         </div>
-        <div class="why-card">
+        <div class="why-card reveal reveal-d4">
           <div class="why-number">04</div>
           <h3>Local & Reliable</h3>
           <p>Based right here in Wakefield on Butternut Road. We're your neighbors — our reputation is everything.</p>
@@ -169,15 +202,15 @@
     </div>
   </section>
 
-  <!-- Quick CTA -->
-  <section class="section" style="background:var(--primary);text-align:center;padding:48px 0">
+  <!-- CTA -->
+  <section class="cta-section">
     <div class="container">
-      <h2 style="color:#fff;margin-bottom:16px">Ready to Transform Your Property?</h2>
-      <p style="color:rgba(255,255,255,0.85);margin-bottom:24px;font-size:1.1rem">Get a free estimate — no obligation, no pressure.</p>
-      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
-        <a href="tel:7812541192" class="btn btn-accent btn-lg"><span>&#9742;</span> Call 781-254-1192</a>
-        <a href="contact.html" class="btn btn-outline btn-lg" style="color:#fff;border-color:rgba(255,255,255,0.5)">Send a Message</a>
-        <a href="tools.html#estimator" class="btn btn-outline btn-lg" style="color:#fff;border-color:rgba(255,255,255,0.5)">Get Instant Estimate</a>
+      <h2>Ready to Transform Your Property?</h2>
+      <p>Get a free estimate — no obligation, no pressure.</p>
+      <div class="cta-actions">
+        <a href="tel:7812541192" class="btn btn-gold btn-lg"><span>&#9742;</span> Call 781-254-1192</a>
+        <a href="contact.html" class="btn btn-ghost btn-lg">Send a Message</a>
+        <a href="tools.html#estimator" class="btn btn-ghost btn-lg">Get Instant Estimate</a>
       </div>
     </div>
   </section>
@@ -205,46 +238,47 @@
           <a href="tel:7812541192">781-254-1192</a>
           <span>Butternut Road, Wakefield, MA 01880</span>
         </div>
-        <div class="footer-copy">
-          &copy; 2026 Paul's Painting. All rights reserved.
-        </div>
+        <div class="footer-copy">&copy; 2026 Paul's Painting. All rights reserved.</div>
       </div>
     </div>
   </footer>
 
-  <!-- Sticky Mobile Bar -->
+  <!-- Sticky Bar -->
   <div class="sticky-bar" id="stickyBar">
-    <a href="tel:7812541192" class="sticky-btn sticky-btn-call">
-      <span class="sticky-btn-icon">&#9742;</span> Call 781-254-1192
-    </a>
-    <a href="sms:7812541192" class="sticky-btn sticky-btn-text">
-      <span class="sticky-btn-icon">&#128172;</span> Text Us
-    </a>
+    <a href="tel:7812541192" class="sticky-btn sticky-btn-call"><span class="sticky-btn-icon">&#9742;</span> Call 781-254-1192</a>
+    <a href="sms:7812541192" class="sticky-btn sticky-btn-text"><span class="sticky-btn-icon">&#128172;</span> Text Us</a>
   </div>
 
   <script src="features.js"></script>
   <script>
-    // Navbar scroll for hero page
-    const navbar = document.getElementById("navbar");
-    if (document.querySelector('.hero')) {
-      navbar.classList.remove("scrolled");
-      window.addEventListener("scroll", () => {
-        navbar.classList.toggle("scrolled", window.scrollY > 50);
-      });
-    }
+    // Navbar scroll behavior for hero page
+    var navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", function() {
+      navbar.classList.toggle("scrolled", window.scrollY > 60);
+    });
     // Mobile nav toggle
-    const navToggle = document.getElementById("navToggle");
-    const navLinks = document.getElementById("navLinks");
-    navToggle.addEventListener("click", () => {
+    var navToggle = document.getElementById("navToggle");
+    var navLinks = document.getElementById("navLinks");
+    navToggle.addEventListener("click", function() {
       navLinks.classList.toggle("open");
       navToggle.classList.toggle("active");
     });
-    document.querySelectorAll(".nav-links a").forEach(link => {
-      link.addEventListener("click", () => {
+    document.querySelectorAll(".nav-links a").forEach(function(link) {
+      link.addEventListener("click", function() {
         navLinks.classList.remove("open");
         navToggle.classList.remove("active");
       });
     });
+    // Scroll reveal
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
+    document.querySelectorAll(".reveal").forEach(function(el) { observer.observe(el); });
   </script>
 </body>
 </html>

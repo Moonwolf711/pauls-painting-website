@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="features.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800&family=Young+Serif&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Navigation -->
@@ -48,7 +48,7 @@
   <!-- Specialty Services -->
   <section class="section specialty-section" id="specialty">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2>Specialty Coatings</h2>
         <p>Premium functional coatings you won't find with other painters</p>
       </div>
@@ -200,7 +200,7 @@
   <!-- Service Builder -->
   <section class="section builder-section" id="builder">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2>Build Your Service Package</h2>
         <p>Select the services you need and get an instant bundled estimate. Combine services to save.</p>
       </div>
@@ -392,5 +392,13 @@
 
   <script src="nav.js"></script>
   <script src="features.js"></script>
+  <script>
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) { entry.target.classList.add("revealed"); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
+    document.querySelectorAll(".reveal").forEach(function(el) { observer.observe(el); });
+  </script>
 </body>
 </html>

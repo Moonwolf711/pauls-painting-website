@@ -36,7 +36,7 @@
   gap: 8px;
   padding: 14px 20px;
   border-radius: var(--radius);
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.9rem;
   text-decoration: none;
@@ -112,7 +112,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
 }
 
 .forecast-day {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.9rem;
   margin-bottom: 2px;
@@ -142,7 +142,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
   border-radius: 50px;
   font-size: 0.7rem;
   font-weight: 700;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   margin-top: 8px;
 }
 .forecast-status.ideal { background: #28a745; color: #fff; }
@@ -229,7 +229,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
   justify-content: center;
   font-size: 0.75rem;
   font-weight: 700;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   transition: all var(--transition);
 }
 .step-indicator.active {
@@ -314,7 +314,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
   margin-bottom: 6px;
 }
 .est-option-title {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.85rem;
   color: var(--text);
@@ -331,7 +331,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
   border: 2px solid var(--border);
   border-radius: var(--radius);
   font-size: 0.95rem;
-  font-family: 'Open Sans', sans-serif;
+  font-family: var(--font-body);
   margin-bottom: 16px;
 }
 .est-select:focus {
@@ -374,7 +374,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
   text-align: center;
 }
 .est-result-amount {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-size: 2.5rem;
   font-weight: 800;
   color: var(--primary);
@@ -486,7 +486,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
   padding: 6px 14px;
   background: rgba(0,0,0,0.65);
   color: #fff;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.75rem;
   border-radius: var(--radius);
@@ -552,7 +552,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
   gap: 5px;
   font-size: 0.72rem;
   font-weight: 600;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   color: var(--text-light);
 }
 .ba-color-dot {
@@ -581,7 +581,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
 }
 
 .guess-prompt {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: 1rem;
   color: var(--text);
@@ -622,7 +622,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
   border: 1px solid var(--border);
 }
 .guess-label {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.82rem;
   color: var(--text);
@@ -630,7 +630,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
 
 .guess-feedback {
   margin-top: 16px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: 1rem;
 }
@@ -676,7 +676,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
 
 .roi-input-group label {
   display: block;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.85rem;
   margin-bottom: 6px;
@@ -689,7 +689,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
   border: 2px solid var(--border);
   border-radius: var(--radius);
   font-size: 0.95rem;
-  font-family: 'Open Sans', sans-serif;
+  font-family: var(--font-body);
 }
 .roi-input-group input:focus,
 .roi-input-group select:focus {
@@ -746,7 +746,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
   margin-bottom: 8px;
 }
 .roi-big-number {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-weight: 800;
   font-size: 2.5rem;
   color: #28a745;
@@ -776,7 +776,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
   border-radius: var(--radius);
 }
 .roi-stat-value {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-weight: 800;
   font-size: 1.5rem;
   color: var(--primary);
@@ -875,7 +875,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-weight: 800;
   font-size: 0.85rem;
   color: var(--text-muted);
@@ -1001,7 +1001,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
   font-size: 1.3rem;
 }
 .ref-tier-name {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.95rem;
 }
@@ -1010,7 +1010,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
   opacity: 0.8;
 }
 .ref-tier-reward {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-weight: 800;
   font-size: 1.1rem;
   color: var(--accent);
@@ -1047,7 +1047,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
   background: rgba(255,255,255,0.1);
   color: #fff;
   font-size: 0.95rem;
-  font-family: 'Open Sans', sans-serif;
+  font-family: var(--font-body);
 }
 .ref-form-group input::placeholder { color: rgba(255,255,255,0.4); }
 .ref-form-group input:focus {
@@ -1072,7 +1072,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
   margin-bottom: 16px;
 }
 .ref-code-value {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-weight: 800;
   font-size: 2rem;
   color: var(--accent);
@@ -1093,7 +1093,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
 .ref-btn {
   padding: 10px 20px;
   border-radius: var(--radius);
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.85rem;
   cursor: pointer;
@@ -1161,7 +1161,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
   right: 16px;
   background: var(--accent);
   color: #fff;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.7rem;
   padding: 4px 10px;
@@ -1195,7 +1195,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
   gap: 4px;
 }
 .spec-price {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-weight: 800;
   font-size: 1.1rem;
   color: var(--primary);
@@ -1301,7 +1301,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
 }
 .builder-item-info strong {
   display: block;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.88rem;
   color: var(--text);
@@ -1312,7 +1312,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
 }
 
 .builder-item-price {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.8rem;
   color: var(--primary);
@@ -1356,7 +1356,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
   color: var(--text);
 }
 .builder-line-price {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-weight: 700;
   color: var(--primary);
   font-size: 0.82rem;
@@ -1389,7 +1389,7 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
 }
 
 .builder-total {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-weight: 800;
   font-size: 1.15rem;
   color: var(--primary);

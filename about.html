@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="features.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800&family=Young+Serif&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Navigation -->
@@ -83,7 +83,7 @@
   <!-- Timeline -->
   <section class="section timeline-section" id="timeline">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2>Your Painting Journey</h2>
         <p>Here's exactly what happens from first call to finished project. Click any step to learn more.</p>
       </div>
@@ -167,7 +167,7 @@
   <!-- Service Area -->
   <section class="section area-section">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2>Service Area</h2>
         <p>Proudly serving Wakefield and surrounding North Shore communities</p>
       </div>
@@ -191,7 +191,7 @@
   <!-- Referral Program -->
   <section class="section referral-section" id="referral">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2>Refer a Neighbor, You Both Save</h2>
         <p>Know someone who needs painting? Share the love and earn rewards.</p>
       </div>
@@ -267,5 +267,13 @@
 
   <script src="nav.js"></script>
   <script src="features.js"></script>
+  <script>
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) { entry.target.classList.add("revealed"); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
+    document.querySelectorAll(".reveal").forEach(function(el) { observer.observe(el); });
+  </script>
 </body>
 </html>
