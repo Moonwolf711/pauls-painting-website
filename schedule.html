@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule Painting | Paul's Painting - Wakefield, MA</title>
+  <meta name="description" content="Book an on-site quote or schedule your painting start date with Paul's Painting in Wakefield, MA. Live weather and paintability forecast on every date.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="features.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800&family=Young+Serif&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">&#9964;</span>
+        <div class="logo-text">
+          <span class="logo-name">Paul's Painting</span>
+          <span class="logo-tagline">Wakefield, MA</span>
+        </div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="tools.html">Tools</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="schedule.html" class="active">Schedule</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="tel:7812541192" class="nav-cta">Call Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Schedule Your Project</h1>
+      <p>Pick a date, check the weather forecast, and book your on-site quote or job start</p>
+    </div>
+  </section>
+
+  <!-- Calendar + Booking -->
+  <section class="section cal-section">
+    <div class="container">
+      <div class="cal-layout">
+        <!-- Calendar Panel -->
+        <div class="cal-panel">
+          <div class="cal-header">
+            <button class="cal-nav-btn" id="calPrev" aria-label="Previous month">&#9664;</button>
+            <h2 class="cal-month-label" id="calMonthLabel"></h2>
+            <button class="cal-nav-btn" id="calNext" aria-label="Next month">&#9654;</button>
+          </div>
+          <div class="cal-weekdays">
+            <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+          </div>
+          <div class="cal-grid" id="calendarGrid"></div>
+          <div class="cal-legend">
+            <span class="cal-legend-item"><span class="cal-legend-dot cal-dot-ideal"></span> Ideal Paint Day</span>
+            <span class="cal-legend-item"><span class="cal-legend-dot cal-dot-possible"></span> Possible</span>
+            <span class="cal-legend-item"><span class="cal-legend-dot cal-dot-poor"></span> Not Ideal</span>
+            <span class="cal-legend-item"><span class="cal-legend-dot cal-dot-booked"></span> Booked</span>
+            <span class="cal-legend-item"><span class="cal-legend-dot cal-dot-off"></span> Closed</span>
+          </div>
+        </div>
+
+        <!-- Booking Sidebar -->
+        <div class="cal-sidebar">
+          <div class="cal-sidebar-empty" id="bookingEmpty">
+            <div class="cal-sidebar-icon">&#128197;</div>
+            <h3>Select a Date</h3>
+            <p>Click any available date on the calendar to see the weather forecast and book your appointment.</p>
+            <div class="cal-sidebar-tips">
+              <h4>Booking Options</h4>
+              <div class="cal-tip"><strong>On-Site Quote</strong> &mdash; Free, no obligation. Paul visits your property, measures, and provides a detailed proposal.</div>
+              <div class="cal-tip"><strong>Job Start Date</strong> &mdash; Ready to go? Reserve your start date with a $500 refundable deposit.</div>
+            </div>
+          </div>
+
+          <div class="cal-form-wrap" id="bookingFormWrap" style="display:none">
+            <h3 id="selectedDateDisplay"></h3>
+            <div class="cal-date-weather" id="dateWeather" style="display:none"></div>
+
+            <!-- Netlify Form -->
+            <form id="scheduleForm" name="scheduling" method="POST" data-netlify="true">
+              <input type="hidden" name="form-name" value="scheduling">
+              <input type="hidden" name="selected-date" id="formDate" value="">
+
+              <div class="cal-form-group">
+                <label>What would you like to book?</label>
+                <div class="cal-radio-group">
+                  <label class="cal-radio">
+                    <input type="radio" name="booking-type" value="quote" checked>
+                    <span class="cal-radio-mark"></span>
+                    <span class="cal-radio-text"><strong>On-Site Quote</strong><small>Free — no obligation</small></span>
+                  </label>
+                  <label class="cal-radio">
+                    <input type="radio" name="booking-type" value="job-start">
+                    <span class="cal-radio-mark"></span>
+                    <span class="cal-radio-text"><strong>Job Start Date</strong><small>$500 refundable deposit</small></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="cal-deposit-info" id="depositInfo" style="display:none">
+                <p>&#9432; A $500 refundable deposit holds your start date. You'll pay by phone after submitting this request.</p>
+              </div>
+
+              <div class="cal-form-group">
+                <label for="calName">Your Name</label>
+                <input type="text" id="calName" name="name" placeholder="Full name" required>
+              </div>
+              <div class="cal-form-group">
+                <label for="calPhone">Phone Number</label>
+                <input type="tel" id="calPhone" name="phone" placeholder="781-555-0123" required>
+              </div>
+              <div class="cal-form-group">
+                <label for="calEmail">Email (optional)</label>
+                <input type="email" id="calEmail" name="email" placeholder="you@email.com">
+              </div>
+              <div class="cal-form-group">
+                <label for="calNotes">Notes (optional)</label>
+                <textarea id="calNotes" name="notes" rows="3" placeholder="Tell us about your project..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-gold btn-full">Submit Request</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="logo-icon">&#9964;</span>
+          <div><strong>Paul's Painting</strong><span>Wakefield, Massachusetts</span></div>
+        </div>
+        <div class="footer-nav">
+          <a href="index.html">Home</a><a href="services.html">Services</a><a href="tools.html">Tools</a>
+          <a href="gallery.html">Gallery</a><a href="about.html">About</a><a href="schedule.html">Schedule</a><a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-contact"><a href="tel:7812541192">781-254-1192</a><span>Butternut Road, Wakefield, MA 01880</span></div>
+        <div class="footer-copy">&copy; 2026 Paul's Painting. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="sticky-bar" id="stickyBar">
+    <a href="tel:7812541192" class="sticky-btn sticky-btn-call"><span class="sticky-btn-icon">&#9742;</span> Call 781-254-1192</a>
+    <a href="sms:7812541192" class="sticky-btn sticky-btn-text"><span class="sticky-btn-icon">&#128172;</span> Text Us</a>
+  </div>
+
+  <script src="nav.js"></script>
+  <script src="features.js"></script>
+  <script src="calendar.js"></script>
+  <script>
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) { entry.target.classList.add("revealed"); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
+    document.querySelectorAll(".reveal").forEach(function(el) { observer.observe(el); });
+  </script>
+</body>
+</html>

@@ -26,150 +26,110 @@
   }
 
   // ════════════════════════════════════════════
-  // 8. PAINTABILITY FORECAST
+  // 8. PAINTABILITY FORECAST (Live Open-Meteo)
   // ════════════════════════════════════════════
   function initForecast() {
-    const container = document.getElementById("forecastGrid");
+    var container = document.getElementById("forecastGrid");
     if (!container) return;
 
-    const days = generateForecast();
-    const countEl = document.getElementById("idealDaysCount");
-
-    let idealCount = 0;
-    days.forEach((day) => {
-      if (day.score >= 70) idealCount++;
-    });
+    var countEl = document.getElementById("idealDaysCount");
+    var dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    var monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
     // Calculate remaining ideal days in the season
-    const now = new Date();
-    const seasonEnd = new Date(now.getFullYear(), 9, 31); // Oct 31
-    const seasonStart = new Date(now.getFullYear(), 4, 1); // May 1
-    let remainingIdeal = 0;
-    if (now < seasonStart) {
-      remainingIdeal = 120; // rough estimate May-Oct
-    } else if (now > seasonEnd) {
-      remainingIdeal = 0;
-    } else {
-      const daysLeft = Math.ceil((seasonEnd - now) / 86400000);
-      remainingIdeal = Math.round(daysLeft * 0.65); // ~65% of remaining days are paintable
-    }
+    var now = new Date();
+    var seasonEnd = new Date(now.getFullYear(), 9, 31);
+    var seasonStart = new Date(now.getFullYear(), 4, 1);
+    var remainingIdeal = 0;
+    if (now < seasonStart) { remainingIdeal = 120; }
+    else if (now > seasonEnd) { remainingIdeal = 0; }
+    else { remainingIdeal = Math.round(Math.ceil((seasonEnd - now) / 86400000) * 0.65); }
+    if (countEl) countEl.textContent = remainingIdeal;
 
-    if (countEl) {
-      countEl.textContent = remainingIdeal;
-    }
-
-    days.forEach((day) => {
-      const card = document.createElement("div");
-      card.className = "forecast-card";
-
-      let status, statusClass, icon;
-      if (day.score >= 70) {
-        status = "Ideal";
-        statusClass = "ideal";
-        icon = "&#9728;"; // sun
-      } else if (day.score >= 40) {
-        status = "Possible";
-        statusClass = "possible";
-        icon = "&#9925;"; // partly cloudy
-      } else {
-        status = "Not Ideal";
-        statusClass = "poor";
-        icon = "&#9730;"; // rain
-      }
-
-      card.innerHTML = `
-        <div class="forecast-day">${day.dayName}</div>
-        <div class="forecast-date">${day.date}</div>
-        <div class="forecast-icon">${icon}</div>
-        <div class="forecast-temp">${day.high}°F / ${day.low}°F</div>
-        <div class="forecast-detail">Humidity: ${day.humidity}%</div>
-        <div class="forecast-detail">Wind: ${day.wind} mph</div>
-        <div class="forecast-status ${statusClass}">${status}</div>
-        <div class="forecast-score-bar">
-          <div class="forecast-score-fill ${statusClass}" style="width:${day.score}%"></div>
-        </div>
-      `;
-      container.appendChild(card);
-    });
-  }
-
-  function generateForecast() {
-    const now = new Date();
-    const month = now.getMonth();
-    const days = [];
-    const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    const monthNames = [
-      "Jan","Feb","Mar","Apr","May","Jun",
-      "Jul","Aug","Sep","Oct","Nov","Dec",
-    ];
-
-    // Wakefield MA typical weather by month (avg high, avg low, avg humidity, rain chance)
-    const climate = [
-      { high: 36, low: 20, hum: 62, rain: 0.35 }, // Jan
-      { high: 39, low: 22, hum: 60, rain: 0.33 }, // Feb
-      { high: 47, low: 29, hum: 58, rain: 0.35 }, // Mar
-      { high: 58, low: 39, hum: 56, rain: 0.33 }, // Apr
-      { high: 68, low: 49, hum: 58, rain: 0.35 }, // May
-      { high: 77, low: 58, hum: 62, rain: 0.32 }, // Jun
-      { high: 83, low: 64, hum: 64, rain: 0.30 }, // Jul
-      { high: 81, low: 62, hum: 66, rain: 0.28 }, // Aug
-      { high: 73, low: 54, hum: 64, rain: 0.27 }, // Sep
-      { high: 62, low: 44, hum: 62, rain: 0.30 }, // Oct
-      { high: 51, low: 35, hum: 64, rain: 0.32 }, // Nov
-      { high: 40, low: 24, hum: 64, rain: 0.34 }, // Dec
-    ];
-
-    for (let i = 0; i < 7; i++) {
-      const d = new Date(now.getTime() + i * 86400000);
-      const m = d.getMonth();
-      const c = climate[m];
-
-      // Add randomness
-      const rand = () => (Math.random() - 0.5) * 2;
-      const high = Math.round(c.high + rand() * 8);
-      const low = Math.round(c.low + rand() * 6);
-      const humidity = Math.round(c.hum + rand() * 12);
-      const wind = Math.round(5 + Math.random() * 15);
-      const isRainy = Math.random() < c.rain;
-
-      // Paintability score calculation
-      let score = 100;
-
-      // Temperature: ideal 50-85F
+    function paintScore(high, low, humidity, wind, precip) {
+      var score = 100;
       if (high < 40) score -= 60;
       else if (high < 50) score -= 35;
       else if (high > 90) score -= 30;
       else if (high > 85) score -= 15;
-
-      // Humidity: ideal 40-70%
       if (humidity > 80) score -= 40;
       else if (humidity > 70) score -= 20;
-      else if (humidity < 30) score -= 10;
-
-      // Wind: ideal < 15
       if (wind > 25) score -= 35;
       else if (wind > 15) score -= 15;
-
-      // Rain
-      if (isRainy) score -= 50;
-
-      // Low temp (paint won't cure below 35F)
+      if (precip > 60) score -= 50;
+      else if (precip > 30) score -= 25;
       if (low < 35) score -= 20;
+      return Math.max(0, Math.min(100, score));
+    }
 
-      score = Math.max(0, Math.min(100, score));
-
-      days.push({
-        dayName: dayNames[d.getDay()],
-        date: `${monthNames[m]} ${d.getDate()}`,
-        high,
-        low,
-        humidity,
-        wind,
-        score,
-        rainy: isRainy,
+    function renderCards(days) {
+      days.forEach(function(day) {
+        var card = document.createElement("div");
+        card.className = "forecast-card";
+        var status, statusClass, icon;
+        if (day.score >= 70) { status = "Ideal"; statusClass = "ideal"; icon = "&#9728;&#65039;"; }
+        else if (day.score >= 40) { status = "Possible"; statusClass = "possible"; icon = "&#9925;"; }
+        else { status = "Not Ideal"; statusClass = "poor"; icon = "&#127783;&#65039;"; }
+        card.innerHTML =
+          '<div class="forecast-day">' + day.dayName + '</div>' +
+          '<div class="forecast-date">' + day.date + '</div>' +
+          '<div class="forecast-icon">' + icon + '</div>' +
+          '<div class="forecast-temp">' + day.high + '&deg;F / ' + day.low + '&deg;F</div>' +
+          '<div class="forecast-detail">Humidity: ' + day.humidity + '%</div>' +
+          '<div class="forecast-detail">Wind: ' + day.wind + ' mph</div>' +
+          '<div class="forecast-status ' + statusClass + '">' + status + '</div>' +
+          '<div class="forecast-score-bar"><div class="forecast-score-fill ' + statusClass + '" style="width:' + day.score + '%"></div></div>';
+        container.appendChild(card);
       });
     }
-    return days;
+
+    // Fetch real weather from Open-Meteo
+    var cacheKey = "pp_forecast_weather";
+    var cacheTTL = 3600000;
+    var cached = null;
+    try {
+      var c = sessionStorage.getItem(cacheKey);
+      if (c) {
+        var p = JSON.parse(c);
+        if (Date.now() - p.ts < cacheTTL) cached = p.data;
+      }
+    } catch(e) {}
+
+    if (cached) {
+      renderCards(cached);
+      return;
+    }
+
+    var url = "https://api.open-meteo.com/v1/forecast" +
+      "?latitude=42.5064&longitude=-71.0756" +
+      "&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,relative_humidity_2m_max,wind_speed_10m_max" +
+      "&temperature_unit=fahrenheit&wind_speed_unit=mph&forecast_days=7&timezone=America/New_York";
+
+    fetch(url)
+      .then(function(r) { return r.json(); })
+      .then(function(json) {
+        var days = [];
+        json.daily.time.forEach(function(dateStr, i) {
+          var parts = dateStr.split("-");
+          var d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+          var high = Math.round(json.daily.temperature_2m_max[i]);
+          var low = Math.round(json.daily.temperature_2m_min[i]);
+          var humidity = Math.round(json.daily.relative_humidity_2m_max[i]);
+          var wind = Math.round(json.daily.wind_speed_10m_max[i]);
+          var precip = Math.round(json.daily.precipitation_probability_max[i]);
+          days.push({
+            dayName: dayNames[d.getDay()],
+            date: monthNames[d.getMonth()] + " " + d.getDate(),
+            high: high, low: low, humidity: humidity, wind: wind,
+            score: paintScore(high, low, humidity, wind, precip)
+          });
+        });
+        try { sessionStorage.setItem(cacheKey, JSON.stringify({ data: days, ts: Date.now() })); } catch(e) {}
+        renderCards(days);
+      })
+      .catch(function() {
+        container.innerHTML = '<p style="text-align:center;color:rgba(255,255,255,0.7);grid-column:1/-1">Weather data unavailable. <a href="tel:7812541192" style="color:#C4923A">Call for scheduling info.</a></p>';
+      });
   }
 
   initForecast();
