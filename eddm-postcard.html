@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paul's Painting EDDM Postcard — 6.5" x 9" Print Ready</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & Page ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #e8e4df;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      gap: 60px;
+    }
+
+    .print-label {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #888;
+      margin-bottom: -40px;
+    }
+
+    /* ── Card Shell ── */
+    .card {
+      width: 9in;
+      height: 6.5in;
+      background: #fff;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+    }
+
+    /* ══════════════════════════════════════
+       FRONT SIDE
+       ══════════════════════════════════════ */
+    .front {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 100%;
+    }
+
+    /* Left panel — dark */
+    .front-left {
+      background: #1a2332;
+      color: #fff;
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .front-left::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(218,165,32,0.08);
+    }
+    .front-left::after {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      left: -40px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: rgba(218,165,32,0.05);
+    }
+
+    .front-badge {
+      background: #daa520;
+      color: #1a2332;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      padding: 6px 14px;
+      border-radius: 3px;
+      display: inline-block;
+      align-self: flex-start;
+    }
+
+    .front-headline {
+      position: relative;
+      z-index: 1;
+    }
+    .front-headline h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 42px;
+      line-height: 1.1;
+      margin-bottom: 14px;
+      color: #fff;
+    }
+    .front-headline h1 span {
+      color: #daa520;
+    }
+    .front-headline p {
+      font-size: 14px;
+      line-height: 1.6;
+      opacity: 0.7;
+      max-width: 280px;
+    }
+
+    .front-phone {
+      position: relative;
+      z-index: 1;
+    }
+    .front-phone .phone-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      opacity: 0.5;
+      margin-bottom: 6px;
+    }
+    .front-phone .phone-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 30px;
+      color: #daa520;
+      letter-spacing: 1px;
+    }
+
+    /* Right panel — gold accent image area */
+    .front-right {
+      position: relative;
+      background: linear-gradient(145deg, #f5f0e8 0%, #ede4d4 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .front-right::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: #daa520;
+    }
+
+    .house-illustration {
+      width: 200px;
+      height: 160px;
+      position: relative;
+      margin-bottom: 24px;
+    }
+    /* Stylized house shape */
+    .house-body {
+      position: absolute;
+      bottom: 0;
+      left: 20px;
+      width: 160px;
+      height: 100px;
+      background: #1a2332;
+      border-radius: 4px 4px 0 0;
+    }
+    .house-roof {
+      position: absolute;
+      bottom: 100px;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+      border-bottom: 60px solid #daa520;
+    }
+    .house-door {
+      position: absolute;
+      bottom: 0;
+      left: 78px;
+      width: 44px;
+      height: 60px;
+      background: #daa520;
+      border-radius: 22px 22px 0 0;
+    }
+    .house-window {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: rgba(218,165,32,0.3);
+      border: 2px solid #daa520;
+      border-radius: 3px;
+    }
+    .house-window.w1 { bottom: 50px; left: 35px; }
+    .house-window.w2 { bottom: 50px; right: 35px; }
+
+    .paint-roller {
+      position: absolute;
+      top: 20px;
+      right: 10px;
+      font-size: 48px;
+      transform: rotate(-30deg);
+      opacity: 0.15;
+    }
+
+    .selling-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+    .selling-points li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a2332;
+    }
+    .selling-points .check {
+      width: 22px;
+      height: 22px;
+      background: #daa520;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .front-right .tagline {
+      margin-top: 20px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #999;
+      font-weight: 600;
+    }
+
+    /* ══════════════════════════════════════
+       BACK SIDE
+       ══════════════════════════════════════ */
+    .back {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 100%;
+    }
+
+    /* Left — message area */
+    .back-left {
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid #ddd;
+    }
+
+    .back-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .back-logo .logo-mark {
+      width: 36px;
+      height: 36px;
+      background: #1a2332;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #daa520;
+      font-size: 18px;
+      font-weight: 800;
+    }
+    .back-logo .logo-text {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: #1a2332;
+    }
+    .back-logo .logo-sub {
+      font-size: 10px;
+      color: #999;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .back-message h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: #1a2332;
+      margin-bottom: 10px;
+    }
+    .back-message p {
+      font-size: 12.5px;
+      line-height: 1.65;
+      color: #555;
+      margin-bottom: 14px;
+    }
+
+    .services-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 16px;
+      list-style: none;
+      margin-bottom: 16px;
+    }
+    .services-list li {
+      font-size: 11px;
+      font-weight: 600;
+      color: #1a2332;
+      padding-left: 14px;
+      position: relative;
+    }
+    .services-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      background: #daa520;
+      border-radius: 50%;
+    }
+
+    .back-cta {
+      background: #1a2332;
+      color: #fff;
+      border-radius: 8px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .back-cta .cta-text {
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .back-cta .cta-text strong {
+      display: block;
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: #daa520;
+      margin-top: 2px;
+    }
+    .back-cta .cta-badge {
+      background: #daa520;
+      color: #1a2332;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 8px 14px;
+      border-radius: 4px;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    /* Right — address panel (USPS required) */
+    .back-right {
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .usps-indicia {
+      border: 2px solid #333;
+      width: 140px;
+      height: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      align-self: flex-end;
+      font-size: 8px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #333;
+      line-height: 1.5;
+      text-align: center;
+    }
+    .usps-indicia span {
+      font-size: 7px;
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+
+    .serving-area {
+      margin-top: 16px;
+    }
+    .serving-area h4 {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #999;
+      margin-bottom: 8px;
+    }
+    .serving-area p {
+      font-size: 11px;
+      line-height: 1.7;
+      color: #666;
+    }
+
+    .address-block {
+      margin-top: auto;
+    }
+    .address-ecrwss {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #333;
+      margin-bottom: 12px;
+    }
+    .address-lines {
+      font-size: 14px;
+      font-weight: 600;
+      color: #333;
+      line-height: 1.6;
+    }
+    .address-lines .barcode-placeholder {
+      display: block;
+      margin-top: 8px;
+      font-family: monospace;
+      font-size: 16px;
+      letter-spacing: 2px;
+      color: #333;
+    }
+
+    .back-website {
+      margin-top: 16px;
+      font-size: 11px;
+      color: #999;
+    }
+    .back-website strong {
+      color: #1a2332;
+    }
+
+    /* ── Print Styles ── */
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+        gap: 0;
+      }
+      .print-label, .print-instructions { display: none; }
+      .card {
+        box-shadow: none;
+        page-break-after: always;
+        margin: 0;
+      }
+    }
+
+    /* ── Instructions Panel ── */
+    .print-instructions {
+      max-width: 9in;
+      background: #fff;
+      border-radius: 12px;
+      padding: 36px 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      font-size: 14px;
+      line-height: 1.7;
+      color: #444;
+    }
+    .print-instructions h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 24px;
+      color: #1a2332;
+      margin-bottom: 16px;
+    }
+    .print-instructions h3 {
+      font-size: 15px;
+      color: #1a2332;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+    .print-instructions table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 13px;
+    }
+    .print-instructions table th {
+      text-align: left;
+      padding: 8px 12px;
+      background: #f5f0e8;
+      font-weight: 700;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #666;
+    }
+    .print-instructions table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #eee;
+    }
+    .print-instructions code {
+      background: #f0ede8;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 12px;
+    }
+    .print-instructions ul {
+      padding-left: 20px;
+    }
+    .print-instructions li {
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ FRONT ═══ -->
+  <div class="print-label">Front Side (6.5" &times; 9")</div>
+  <div class="card front-card">
+    <div class="front">
+
+      <div class="front-left">
+        <div class="front-badge">Free Estimates</div>
+        <div class="front-headline">
+          <h1>Your Home<br>Deserves a<br><span>Fresh Coat</span></h1>
+          <p>Professional exterior painting for homes and businesses across the North Shore. Prep done right. Paint that lasts.</p>
+        </div>
+        <div class="front-phone">
+          <div class="phone-label">Call or Text Today</div>
+          <div class="phone-number">781-254-1192</div>
+        </div>
+      </div>
+
+      <div class="front-right">
+        <div class="house-illustration">
+          <div class="house-roof"></div>
+          <div class="house-body">
+            <div class="house-window w1"></div>
+            <div class="house-window w2"></div>
+            <div class="house-door"></div>
+          </div>
+          <div class="paint-roller">&#9964;</div>
+        </div>
+        <ul class="selling-points">
+          <li><span class="check">&#10003;</span> Licensed &amp; Insured</li>
+          <li><span class="check">&#10003;</span> Sherwin-Williams Paints</li>
+          <li><span class="check">&#10003;</span> Meticulous Surface Prep</li>
+          <li><span class="check">&#10003;</span> Free On-Site Estimates</li>
+          <li><span class="check">&#10003;</span> Residential &amp; Commercial</li>
+        </ul>
+        <div class="tagline">Wakefield, MA &bull; Since 2005</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ BACK ═══ -->
+  <div class="print-label">Back Side (6.5" &times; 9")</div>
+  <div class="card back-card">
+    <div class="back">
+
+      <div class="back-left">
+        <div>
+          <div class="back-logo">
+            <div class="logo-mark">&#9964;</div>
+            <div>
+              <div class="logo-text">Paul's Painting</div>
+              <div class="logo-sub">Exterior Specialists</div>
+            </div>
+          </div>
+
+          <div class="back-message">
+            <h2>Hi Neighbor,</h2>
+            <p>I'm Paul — a local painter based right here in Wakefield. If your home's exterior is peeling, fading, or just due for an update, I'd love to give you a free, no-pressure estimate. I prep every surface by hand, use premium Sherwin-Williams paints, and leave your property spotless.</p>
+          </div>
+
+          <ul class="services-list">
+            <li>Exterior House Painting</li>
+            <li>Commercial Buildings</li>
+            <li>Power Washing</li>
+            <li>Surface Preparation</li>
+            <li>Trim &amp; Detail Work</li>
+            <li>Deck &amp; Fence Staining</li>
+            <li>Color Consultation</li>
+            <li>Caulking &amp; Repairs</li>
+          </ul>
+        </div>
+
+        <div class="back-cta">
+          <div class="cta-text">
+            Call or text for a free quote
+            <strong>781-254-1192</strong>
+          </div>
+          <div class="cta-badge">Free<br>Estimate</div>
+        </div>
+      </div>
+
+      <div class="back-right">
+        <div class="usps-indicia">
+          PRSRT STD<br>
+          ECRWSS<br>
+          U.S. POSTAGE<br>
+          PAID<br>
+          <span>EDDM Retail</span>
+        </div>
+
+        <div class="serving-area">
+          <h4>Proudly Serving</h4>
+          <p>Wakefield &bull; Melrose &bull; Stoneham &bull; Reading &bull; Saugus &bull; Lynnfield &bull; Woburn &bull; Winchester &bull; Medford &bull; Malden &bull; Peabody &bull; North Reading</p>
+        </div>
+
+        <div class="address-block">
+          <div class="address-ecrwss">ECRWSS</div>
+          <div class="address-lines">
+            Local<br>
+            Postal Customer
+          </div>
+          <div class="back-website"><strong>pauls-painting.com</strong></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ EDDM GUIDE ═══ -->
+  <div class="print-instructions">
+    <h2>EDDM Mailing Guide for Paul's Painting</h2>
+
+    <h3>What is EDDM?</h3>
+    <p>Every Door Direct Mail lets you send postcards to every address on a postal carrier route — no mailing list, no names, no addresses needed. You pick routes by ZIP code and USPS delivers to every door. Perfect for local service businesses.</p>
+
+    <h3>Postcard Specs</h3>
+    <table>
+      <tr><th>Spec</th><th>Value</th></tr>
+      <tr><td>Size</td><td>6.5" &times; 9" (standard EDDM flat)</td></tr>
+      <tr><td>Paper</td><td>14pt or 16pt gloss cardstock (recommended)</td></tr>
+      <tr><td>Coating</td><td>UV gloss front, uncoated back (for writing)</td></tr>
+      <tr><td>Bleed</td><td>0.125" on all sides</td></tr>
+      <tr><td>Address panel</td><td>Required on back-right (included in design)</td></tr>
+      <tr><td>Indicia</td><td>"ECRWSS / EDDM Retail" (included in design)</td></tr>
+    </table>
+
+    <h3>Target ZIP Codes &amp; Towns</h3>
+    <table>
+      <tr><th>Town</th><th>ZIP</th><th>Distance</th><th>Priority</th></tr>
+      <tr><td>Wakefield</td><td>01880</td><td>Home base</td><td>&#11088; Drop 1</td></tr>
+      <tr><td>Melrose</td><td>02176</td><td>3 mi</td><td>&#11088; Drop 1</td></tr>
+      <tr><td>Stoneham</td><td>02180</td><td>4 mi</td><td>&#11088; Drop 1</td></tr>
+      <tr><td>Reading</td><td>01867</td><td>4 mi</td><td>&#11088; Drop 1</td></tr>
+      <tr><td>Lynnfield</td><td>01940</td><td>4 mi</td><td>Drop 2</td></tr>
+      <tr><td>Saugus</td><td>01906</td><td>5 mi</td><td>Drop 2</td></tr>
+      <tr><td>Winchester</td><td>01890</td><td>5 mi</td><td>Drop 2</td></tr>
+      <tr><td>Woburn</td><td>01801, 01888</td><td>6 mi</td><td>Drop 2</td></tr>
+      <tr><td>Malden</td><td>02148</td><td>7 mi</td><td>Drop 3</td></tr>
+      <tr><td>North Reading</td><td>01864</td><td>7 mi</td><td>Drop 3</td></tr>
+      <tr><td>Medford</td><td>02155, 02156</td><td>8 mi</td><td>Drop 3</td></tr>
+      <tr><td>Peabody</td><td>01960</td><td>8 mi</td><td>Drop 3</td></tr>
+    </table>
+
+    <h3>How to Send via USPS EDDM</h3>
+    <ol>
+      <li>Go to <strong>eddm.usps.com</strong> and click "Start a Campaign"</li>
+      <li>Enter each ZIP code above and browse available carrier routes</li>
+      <li>Filter routes by <strong>residential only</strong> (skip PO boxes and businesses if budget is tight)</li>
+      <li>Select routes — each shows household count (typically 300-700 per route)</li>
+      <li>Print postcards at a local print shop or online (VistaPrint, PrintingForLess, GotPrint)</li>
+      <li>Bundle 100 postcards per bundle, face up, with a facing slip on top</li>
+      <li>Drop bundles at your local post office with EDDM retail form (PS Form 3587)</li>
+    </ol>
+
+    <h3>Cost Estimate</h3>
+    <table>
+      <tr><th>Item</th><th>Cost</th><th>Notes</th></tr>
+      <tr><td>USPS Postage</td><td>$0.223/piece</td><td>EDDM Retail rate (2025-2026)</td></tr>
+      <tr><td>Printing (500)</td><td>~$80-120</td><td>14pt gloss, 6.5x9, online printer</td></tr>
+      <tr><td>Printing (1,000)</td><td>~$110-160</td><td>Price per piece drops with volume</td></tr>
+      <tr><td><strong>Total per 1,000</strong></td><td><strong>~$335-385</strong></td><td>Printing + postage combined</td></tr>
+    </table>
+    <p style="margin-top:8px;font-size:13px;color:#888;">A single exterior paint job typically runs $3,000-$8,000+. One new customer from 1,000 postcards = 8-20x return on investment.</p>
+
+    <h3>Best Timing</h3>
+    <ul>
+      <li><strong>March-April:</strong> Homeowners planning spring/summer projects — best ROI</li>
+      <li><strong>August-September:</strong> "Get it done before winter" urgency</li>
+      <li>Avoid December-February (nobody painting exterior in New England winter)</li>
+      <li>Drop on Tuesday-Wednesday for midweek mailbox delivery</li>
+    </ul>
+
+    <h3>Recommended Strategy</h3>
+    <ul>
+      <li><strong>Drop 1 (Spring):</strong> Wakefield + Melrose + Stoneham + Reading (~2,000-3,000 homes, ~$700-1,100)</li>
+      <li><strong>Drop 2 (6 weeks later):</strong> Lynnfield + Saugus + Winchester + Woburn</li>
+      <li><strong>Drop 3 (Late summer):</strong> Malden + North Reading + Medford + Peabody</li>
+      <li>Track which ZIPs generate calls — double down on those routes next season</li>
+    </ul>
+
+    <h3>Printing This Design</h3>
+    <p>Open this file in Chrome/Brave, press <code>Ctrl+P</code>, set paper to <strong>Tabloid/11x17</strong> or <strong>Custom 9x6.5</strong>, margins to <strong>None</strong>, enable <strong>Background graphics</strong>, and save as PDF. Send that PDF to your printer. Or send this HTML file directly to a local print shop — they can export at 300 DPI.</p>
+  </div>
+
+</body>
+</html>
