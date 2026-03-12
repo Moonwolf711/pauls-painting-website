@@ -1288,6 +1288,48 @@ a.contact-value:hover { color: var(--accent); }
 .tool-panel { display: none; }
 .tool-panel.active { display: block; }
 
+/* ── FAQ Section ── */
+.faq-section { background: var(--bg-alt, #f8f7f4); }
+.faq-item {
+  background: var(--card-bg, #fff);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  overflow: hidden;
+  transition: box-shadow 0.25s ease;
+}
+.faq-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+.faq-item summary {
+  padding: 20px 24px;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--text, #1a1a2e);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--accent);
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+.faq-item[open] summary::after { content: '\2212'; }
+.faq-item p {
+  padding: 0 24px 20px;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--text-light, #555);
+}
+.faq-item p a { color: var(--accent); font-weight: 600; text-decoration: none; }
+.faq-item p a:hover { text-decoration: underline; }
+
 /* ── CTA Section ── */
 .cta-section {
   background: var(--naval);
