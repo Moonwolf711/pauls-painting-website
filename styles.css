@@ -864,6 +864,94 @@ a { text-decoration: none; color: inherit; }
   line-height: 1.7;
 }
 
+/* ── Trusted Products (SW Partnership) ── */
+.trusted-section {
+  background: var(--bg-light);
+  padding: 48px 0;
+}
+.trusted-banner {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  border: 1px solid var(--border);
+}
+.trusted-badge {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+.trusted-sw-logo {
+  flex-shrink: 0;
+}
+.trusted-sw-logo svg {
+  display: block;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+}
+.trusted-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.trusted-text strong {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--naval);
+}
+.trusted-text span {
+  font-size: 0.92rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+.trusted-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.trusted-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.trusted-feature-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-light);
+  border-radius: 10px;
+}
+.trusted-feature strong {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--naval);
+  margin-bottom: 2px;
+}
+.trusted-feature span {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .trusted-banner { padding: 28px 20px; }
+  .trusted-badge {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+  .trusted-features {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
 /* ── Service Area ── */
 .area-section { background: var(--bg-light); }
 .area-grid {
