@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Directory Setup Guide | Paul's Painting - Internal</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Internal guide for setting up business directory listings.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="features.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800&family=Young+Serif&display=swap" rel="stylesheet">
+  <style>
+    .guide-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .guide-intro {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .guide-intro p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text-muted, #555);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .directory-card {
+      background: var(--card-bg, #fff);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 28px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .directory-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--heading-color, #1a1a2e);
+      margin-bottom: 4px;
+    }
+    .directory-card .priority-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .priority-high {
+      background: #d4af37;
+      color: #1a1a2e;
+    }
+    .priority-medium {
+      background: #e0e0e0;
+      color: #333;
+    }
+    .priority-low {
+      background: #f5f5f5;
+      color: #666;
+    }
+    .directory-card .dir-url {
+      display: inline-block;
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 16px;
+      word-break: break-all;
+    }
+    .directory-card ol {
+      padding-left: 20px;
+      margin: 0 0 16px;
+    }
+    .directory-card ol li {
+      font-size: 0.93rem;
+      line-height: 1.7;
+      color: var(--text-muted, #555);
+      margin-bottom: 6px;
+    }
+    .directory-card .info-box {
+      background: #f8f7f3;
+      border-left: 3px solid var(--accent, #d4af37);
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 12px;
+    }
+    .directory-card .info-box p {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--text-muted, #555);
+      margin: 0;
+    }
+    .directory-card .info-box strong {
+      color: var(--heading-color, #1a1a2e);
+    }
+    .noindex-banner {
+      background: #fff3cd;
+      color: #856404;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .biz-info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.9rem;
+    }
+    .biz-info-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+    }
+    .biz-info-table td:first-child {
+      font-weight: 600;
+      color: var(--heading-color, #1a1a2e);
+      white-space: nowrap;
+      width: 140px;
+    }
+    .biz-info-table td:last-child {
+      color: var(--text-muted, #555);
+    }
+  </style>
+</head>
+<body>
+  <div class="noindex-banner">Internal page -- not indexed by search engines</div>
+
+  <!-- Navigation -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">&#9964;</span>
+        <div class="logo-text">
+          <span class="logo-name">Paul's Painting</span>
+          <span class="logo-tagline">Wakefield, MA</span>
+        </div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="tools.html">Tools</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="tel:7812541192" class="nav-cta">Call Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Directory Setup Guide</h1>
+      <p>Step-by-step instructions for claiming your business listings</p>
+    </div>
+  </section>
+
+  <!-- Guide Content -->
+  <section class="section">
+    <div class="container">
+      <div class="guide-container">
+
+        <div class="guide-intro">
+          <p>Use this page as a checklist to get Paul's Painting listed on every directory that matters. Work through them in order -- Google Business Profile is the single most important one. Have the business information below ready before you start.</p>
+        </div>
+
+        <!-- Business Info Reference -->
+        <div class="directory-card">
+          <h3>Your Business Information</h3>
+          <p style="font-size: 0.92rem; color: var(--text-muted, #555); margin-bottom: 12px;">Keep this consistent across every listing. Mismatched info hurts search rankings.</p>
+          <table class="biz-info-table">
+            <tr><td>Business Name</td><td>Paul's Painting</td></tr>
+            <tr><td>Primary Category</td><td>Painter</td></tr>
+            <tr><td>Secondary Category</td><td>Painting contractor</td></tr>
+            <tr><td>Address</td><td>Butternut Road, Wakefield, MA 01880</td></tr>
+            <tr><td>Phone</td><td>781-254-1192</td></tr>
+            <tr><td>Website</td><td>https://pauls-painting.com</td></tr>
+            <tr><td>Hours</td><td>Mon-Sat 7:00 AM - 6:00 PM</td></tr>
+            <tr><td>Service Area</td><td>Wakefield, Melrose, Stoneham, Reading, Saugus, Lynnfield, Woburn, Winchester, Medford, Malden, Peabody, North Reading</td></tr>
+          </table>
+        </div>
+
+        <!-- 1. Google Business Profile -->
+        <div class="directory-card">
+          <h3>1. Google Business Profile</h3>
+          <span class="priority-badge priority-high">Highest Priority</span><br>
+          <a href="https://www.google.com/business/" target="_blank" rel="noopener" class="dir-url">google.com/business</a>
+          <ol>
+            <li>Go to <strong>google.com/business</strong> and click "Manage now"</li>
+            <li>Sign in with a Google account (or create one for the business)</li>
+            <li>Enter business name: <strong>Paul's Painting</strong></li>
+            <li>Select primary category: <strong>Painter</strong></li>
+            <li>Add secondary category: <strong>Painting contractor</strong></li>
+            <li>Choose "Yes" for serving customers at their location</li>
+            <li>Enter business address: <strong>Butternut Road, Wakefield, MA 01880</strong></li>
+            <li>Add service area -- enter all 12 towns: Wakefield, Melrose, Stoneham, Reading, Saugus, Lynnfield, Woburn, Winchester, Medford, Malden, Peabody, North Reading</li>
+            <li>Enter phone number: <strong>781-254-1192</strong></li>
+            <li>Enter website: <strong>https://pauls-painting.com</strong></li>
+            <li>Set hours: <strong>Mon-Sat 7:00 AM - 6:00 PM</strong>, Sunday closed</li>
+            <li>Add a business description mentioning exterior painting, Wakefield, and the North Shore</li>
+            <li>Upload photos: job photos, before-and-after shots, team at work</li>
+            <li>Choose a verification method -- Google will offer postcard, phone, or email</li>
+            <li>Complete verification (postcard takes 5-7 days)</li>
+          </ol>
+          <div class="info-box">
+            <p><strong>After verification:</strong> Post weekly updates with job photos. Respond to every review (positive or negative) within 24 hours. Add new photos regularly. This is the single biggest driver of local search visibility.</p>
+          </div>
+        </div>
+
+        <!-- 2. Yelp -->
+        <div class="directory-card">
+          <h3>2. Yelp Business</h3>
+          <span class="priority-badge priority-high">High Priority</span><br>
+          <a href="https://biz.yelp.com/" target="_blank" rel="noopener" class="dir-url">biz.yelp.com</a>
+          <ol>
+            <li>Go to <strong>biz.yelp.com</strong></li>
+            <li>Search for "Paul's Painting Wakefield MA" to see if a listing already exists</li>
+            <li>If it exists, click "Claim this business" and follow the steps</li>
+            <li>If not, click "Add your business" and create a new listing</li>
+            <li>Fill out all business information (name, address, phone, website, hours)</li>
+            <li>Select category: <strong>Painters</strong></li>
+            <li>Upload at least 5 photos -- completed jobs, the team, close-ups of detail work</li>
+            <li>Write a business description highlighting services and service area</li>
+            <li>Verify ownership via phone or email</li>
+          </ol>
+          <div class="info-box">
+            <p><strong>Important:</strong> Never ask customers to leave a Yelp review directly -- Yelp's filter will hide them. Instead, just do great work. Respond to every review professionally. Yelp offers paid advertising but the free listing is enough to start.</p>
+          </div>
+        </div>
+
+        <!-- 3. Angi -->
+        <div class="directory-card">
+          <h3>3. Angi (formerly Angie's List)</h3>
+          <span class="priority-badge priority-medium">Medium Priority</span><br>
+          <a href="https://www.angi.com/pro/" target="_blank" rel="noopener" class="dir-url">angi.com/pro</a>
+          <ol>
+            <li>Go to <strong>angi.com/pro</strong></li>
+            <li>Click "Join as a Pro" or "Create Account"</li>
+            <li>Enter business name, contact info, and service area</li>
+            <li>Select services: Exterior Painting, House Painting</li>
+            <li>Upload business license or insurance documentation if prompted</li>
+            <li>Add photos and a detailed business description</li>
+            <li>Complete the profile -- fill out every field for best visibility</li>
+          </ol>
+          <div class="info-box">
+            <p><strong>Cost:</strong> Basic listing is free. Angi offers paid lead generation and advertising, but start with the free profile and see what comes in organically.</p>
+          </div>
+        </div>
+
+        <!-- 4. HomeAdvisor -->
+        <div class="directory-card">
+          <h3>4. HomeAdvisor</h3>
+          <span class="priority-badge priority-medium">Medium Priority</span><br>
+          <a href="https://www.homeadvisor.com/pro/" target="_blank" rel="noopener" class="dir-url">homeadvisor.com/pro</a>
+          <ol>
+            <li>Go to <strong>homeadvisor.com/pro</strong></li>
+            <li>Click "Sign Up" to create a pro account</li>
+            <li>Enter business name, phone, and zip code (01880)</li>
+            <li>Select trade: <strong>Painting</strong></li>
+            <li>Fill out the full profile with description, photos, and service details</li>
+            <li>Set your service area to the 12 towns</li>
+            <li>Complete background check if required</li>
+          </ol>
+          <div class="info-box">
+            <p><strong>Cost warning:</strong> HomeAdvisor charges per lead, typically $15-$50 per lead depending on the project. Start with just the free profile. Only turn on paid leads if you want to test it, and set a strict weekly budget cap so costs do not run away.</p>
+          </div>
+        </div>
+
+        <!-- 5. Thumbtack -->
+        <div class="directory-card">
+          <h3>5. Thumbtack</h3>
+          <span class="priority-badge priority-medium">Medium Priority</span><br>
+          <a href="https://www.thumbtack.com/pro/" target="_blank" rel="noopener" class="dir-url">thumbtack.com/pro</a>
+          <ol>
+            <li>Go to <strong>thumbtack.com/pro</strong></li>
+            <li>Click "Join as a pro"</li>
+            <li>Enter your name, email, and zip code</li>
+            <li>Select service: <strong>House Painting</strong> (then refine to Exterior Painting)</li>
+            <li>Set your service area -- enter each of the 12 towns or set a radius from Wakefield</li>
+            <li>Set your availability and travel preferences</li>
+            <li>Add photos, a description, and any credentials</li>
+            <li>Set a weekly budget for leads (you choose the amount)</li>
+          </ol>
+          <div class="info-box">
+            <p><strong>Cost:</strong> Pay-per-lead model. You set a weekly budget and Thumbtack sends leads until it is spent. Start low ($50-$100/week) to test the quality of leads in your area. You can pause or stop at any time.</p>
+          </div>
+        </div>
+
+        <!-- 6. Facebook Business Page -->
+        <div class="directory-card">
+          <h3>6. Facebook Business Page</h3>
+          <span class="priority-badge priority-medium">Medium Priority</span><br>
+          <a href="https://www.facebook.com/pages/create/" target="_blank" rel="noopener" class="dir-url">facebook.com/pages/create</a>
+          <ol>
+            <li>Log in to Facebook with a personal account</li>
+            <li>Go to <strong>facebook.com/pages/create</strong></li>
+            <li>Choose category: <strong>Local Business</strong></li>
+            <li>Enter business name: <strong>Paul's Painting</strong></li>
+            <li>Select subcategory: <strong>Painter</strong></li>
+            <li>Add address, phone number, and website</li>
+            <li>Set hours: Mon-Sat 7:00 AM - 6:00 PM</li>
+            <li>Upload a profile photo (logo or team photo) and cover photo (a completed job)</li>
+            <li>Write an "About" section with a business description</li>
+            <li>Enable the Reviews tab in page settings</li>
+            <li>Post your first update with a job photo</li>
+          </ol>
+          <div class="info-box">
+            <p><strong>Ongoing:</strong> Post job photos regularly (1-2 per week). Before-and-after photos perform especially well. Respond to messages and reviews promptly. A Facebook page also shows up in Google search results.</p>
+          </div>
+        </div>
+
+        <!-- 7. Nextdoor Business -->
+        <div class="directory-card">
+          <h3>7. Nextdoor Business</h3>
+          <span class="priority-badge priority-medium">Medium Priority</span><br>
+          <a href="https://business.nextdoor.com/" target="_blank" rel="noopener" class="dir-url">business.nextdoor.com</a>
+          <ol>
+            <li>Go to <strong>business.nextdoor.com</strong></li>
+            <li>Click "Claim your free business page"</li>
+            <li>Search for your business or create a new listing</li>
+            <li>Enter business name, address, phone, and website</li>
+            <li>Select category: <strong>Painter</strong></li>
+            <li>Add a description and photos</li>
+            <li>Verify your business</li>
+          </ol>
+          <div class="info-box">
+            <p><strong>Why it matters:</strong> Nextdoor is where neighbors recommend local businesses to each other. When someone asks "anyone know a good painter?" on Nextdoor, your business page can come up. Free listing gives local visibility that is hard to get elsewhere.</p>
+          </div>
+        </div>
+
+        <!-- 8. BuildZoom -->
+        <div class="directory-card">
+          <h3>8. BuildZoom</h3>
+          <span class="priority-badge priority-low">Lower Priority</span><br>
+          <a href="https://www.buildzoom.com/" target="_blank" rel="noopener" class="dir-url">buildzoom.com</a>
+          <ol>
+            <li>Go to <strong>buildzoom.com</strong></li>
+            <li>Search for "Paul's Painting" to see if a profile already exists from public records</li>
+            <li>If found, click "Claim this profile"</li>
+            <li>If not, look for "Add your business" or "Join as a contractor"</li>
+            <li>Fill out all available fields: business info, service area, specialties</li>
+            <li>Upload photos if the option is available</li>
+            <li>Complete verification steps</li>
+          </ol>
+          <div class="info-box">
+            <p><strong>Cost:</strong> Free listing. BuildZoom pulls data from permit records and license databases. Having a claimed, complete profile helps with online presence and can show up in search results.</p>
+          </div>
+        </div>
+
+        <!-- Checklist Summary -->
+        <div class="directory-card" style="border: 2px solid var(--accent, #d4af37);">
+          <h3>Quick Checklist</h3>
+          <p style="font-size: 0.92rem; color: var(--text-muted, #555); margin-bottom: 16px;">Track your progress through each directory:</p>
+          <table class="biz-info-table">
+            <tr><td>Google Business Profile</td><td>Highest priority -- do this first</td></tr>
+            <tr><td>Yelp</td><td>Second most important for local search</td></tr>
+            <tr><td>Angi</td><td>Free basic listing</td></tr>
+            <tr><td>HomeAdvisor</td><td>Free profile, paid leads optional</td></tr>
+            <tr><td>Thumbtack</td><td>Pay per lead, set your own budget</td></tr>
+            <tr><td>Facebook</td><td>Free, post photos regularly</td></tr>
+            <tr><td>Nextdoor</td><td>Free, great for neighbor referrals</td></tr>
+            <tr><td>BuildZoom</td><td>Free, claim your profile</td></tr>
+          </table>
+          <div class="info-box">
+            <p><strong>Consistency is key.</strong> Use the exact same business name, address, phone number, and website URL on every single listing. Search engines cross-reference this information, and mismatches hurt your rankings.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="logo-icon">&#9964;</span>
+          <div><strong>Paul's Painting</strong><span>Wakefield, Massachusetts</span></div>
+        </div>
+        <div class="footer-nav">
+          <a href="index.html">Home</a><a href="services.html">Services</a><a href="tools.html">Tools</a>
+          <a href="gallery.html">Gallery</a><a href="about.html">About</a><a href="schedule.html">Schedule</a><a href="contact.html">Contact</a>
+          <a href="areas.html">Service Areas</a>
+        </div>
+        <div class="footer-areas">
+          <strong>Serving:</strong> <a href="areas.html">Wakefield</a>, <a href="areas.html#melrose">Melrose</a>, <a href="areas.html#stoneham">Stoneham</a>, <a href="areas.html#reading">Reading</a>, <a href="areas.html#saugus">Saugus</a>, <a href="areas.html#lynnfield">Lynnfield</a>, <a href="areas.html#woburn">Woburn</a>, <a href="areas.html#winchester">Winchester</a>, <a href="areas.html#medford">Medford</a>, <a href="areas.html#malden">Malden</a>, <a href="areas.html#peabody">Peabody</a>, <a href="areas.html#north-reading">North Reading</a>
+        </div>
+        <div class="footer-contact"><a href="tel:7812541192">781-254-1192</a><span>Butternut Road, Wakefield, MA 01880</span></div>
+        <div class="footer-copy">&copy; 2026 Paul's Painting. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="sticky-bar" id="stickyBar">
+    <a href="tel:7812541192" class="sticky-btn sticky-btn-call"><span class="sticky-btn-icon">&#9742;</span> Call 781-254-1192</a>
+    <a href="sms:7812541192" class="sticky-btn sticky-btn-text"><span class="sticky-btn-icon">&#128172;</span> Text Us</a>
+  </div>
+
+  <script src="nav.js"></script>
+  <script>
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) { entry.target.classList.add("revealed"); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
+    document.querySelectorAll(".reveal").forEach(function(el) { observer.observe(el); });
+  </script>
+</body>
+</html>
