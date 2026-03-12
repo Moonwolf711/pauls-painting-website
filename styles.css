@@ -1082,6 +1082,23 @@ a.contact-value:hover { color: var(--accent); }
 }
 .footer-nav a:hover { color: var(--accent); }
 
+.footer-areas {
+  text-align: center;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.8;
+}
+.footer-areas strong {
+  color: rgba(255,255,255,0.7);
+  margin-right: 4px;
+}
+.footer-areas a {
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.footer-areas a:hover { color: var(--accent); }
+
 .footer-contact {
   display: flex;
   flex-direction: column;
