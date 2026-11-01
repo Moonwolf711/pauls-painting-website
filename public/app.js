@@ -27,7 +27,7 @@
 
   // ── Contact Form ──
   const contactForm = document.getElementById("contactForm");
-  contactForm.addEventListener("submit", (e) => {
+  if (contactForm) contactForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const name = document.getElementById("formName").value;
     const phone = document.getElementById("formPhone").value;
