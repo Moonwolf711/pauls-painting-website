@@ -532,7 +532,10 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
   padding: 16px 20px;
   background: #fff;
 }
-.ba-info h4 {
+.ba-info h2 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  line-height: 1.25;
   font-size: 0.95rem;
   margin-bottom: 4px;
   color: var(--text);
@@ -893,12 +896,15 @@ body { padding-bottom: 0; transition: padding-bottom 0.35s; }
   justify-content: space-between;
   align-items: center;
 }
-.tl-header h4 {
+.tl-header h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  line-height: 1.25;
   font-size: 1rem;
   color: var(--text);
   transition: color var(--transition);
 }
-.tl-step:hover .tl-header h4 { color: var(--primary); }
+.tl-step:hover .tl-header h3 { color: var(--primary); }
 
 .tl-toggle {
   font-size: 1.2rem;

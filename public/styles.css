@@ -1484,3 +1484,32 @@ a.contact-value:hover { color: var(--accent); }
 
   .tolerance-control { margin-left: 0; width: 100%; }
 }
+
+/* Heading levels corrected for a clean outline; visuals match the previous h3/h4 rules */
+.contact-card h2 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  line-height: 1.25;
+  font-size: 0.95rem;
+  color: var(--naval);
+  margin-bottom: 8px;
+}
+
+/* Mobile tap targets (44px minimum) and calendar overflow fix */
+@media (max-width: 768px) {
+  .nav-toggle { min-width: 44px; min-height: 44px; align-items: center; justify-content: center; }
+  .footer-nav a, .footer-contact a, .footer-areas a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 6px;
+  }
+  .area-card .area-cta a, a.contact-value {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .tool-tab, .cal-nav-btn { min-height: 44px; }
+  .cal-nav-btn { min-width: 44px; }
+}
+.cal-layout > *, .cal-panel, .cal-grid, .cal-weekdays { min-width: 0; }
