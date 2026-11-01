@@ -1,0 +1,22 @@
+# Old .html forms 301 to the extensionless canonical URLs (forced: the files exist)
+/index.html / 301!
+/about.html /about 301!
+/areas.html /areas 301!
+/contact.html /contact 301!
+/gallery.html /gallery 301!
+/review.html /review 301!
+/schedule.html /schedule 301!
+/services.html /services 301!
+/tools.html /tools 301!
+/painting-lynnfield-ma.html /painting-lynnfield-ma 301!
+/painting-malden-ma.html /painting-malden-ma 301!
+/painting-medford-ma.html /painting-medford-ma 301!
+/painting-melrose-ma.html /painting-melrose-ma 301!
+/painting-north-reading-ma.html /painting-north-reading-ma 301!
+/painting-peabody-ma.html /painting-peabody-ma 301!
+/painting-reading-ma.html /painting-reading-ma 301!
+/painting-saugus-ma.html /painting-saugus-ma 301!
+/painting-stoneham-ma.html /painting-stoneham-ma 301!
+/painting-wakefield-ma.html /painting-wakefield-ma 301!
+/painting-winchester-ma.html /painting-winchester-ma 301!
+/painting-woburn-ma.html /painting-woburn-ma 301!
