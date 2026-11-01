@@ -2,6 +2,16 @@
   publish = "public"
   functions = "netlify/functions"
 
+# Netlify-side minification of the unbundled CSS/JS (no local build step)
+[build.processing]
+  skip_processing = false
+[build.processing.css]
+  bundle = false
+  minify = true
+[build.processing.js]
+  bundle = false
+  minify = true
+
 # Redirect www to non-www (canonical consolidation).
 # The .html -> extensionless 301s live in public/_redirects.
 [[redirects]]
