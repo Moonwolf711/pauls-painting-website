@@ -1,3 +1,19 @@
+/* Self-hosted fonts (latin subset, variable weights) - no third-party request chain */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url(/fonts/hanken-grotesk-latin.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Young Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/young-serif-latin.woff2) format('woff2');
+}
+
 /* ═══════════════════════════════════════════════════
    Paul's Painting — Wakefield, MA
    Design: "The Painter's Canvas"
@@ -13,6 +29,7 @@
   --accent: #C4923A;
   --accent-dark: #A87A2E;
   --accent-light: #D4A84E;
+  --accent-text: #8C6521; /* gold for text on light backgrounds (5.2:1 on white) */
 
   /* Named paint colors */
   --naval: #2E3441;
@@ -24,7 +41,7 @@
   /* Semantic */
   --text: #2A2A2A;
   --text-light: #5E5E5E;
-  --text-muted: #999;
+  --text-muted: #636363;
   --bg: #FAF8F5;
   --bg-light: #F5F0E8;
   --bg-warm: #EDE8DE;
@@ -306,6 +323,8 @@ a { text-decoration: none; color: inherit; }
   position: relative;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   background: var(--naval);
   overflow: hidden;
@@ -342,6 +361,7 @@ a { text-decoration: none; color: inherit; }
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: center;
+  width: 100%;
   padding: 140px 24px 100px;
   max-width: 1200px;
   margin: 0 auto;
@@ -1110,7 +1130,7 @@ a.contact-value:hover { color: var(--accent); }
 }
 .form-group textarea { resize: vertical; }
 .form-note { text-align: center; font-size: 0.82rem; color: var(--text-muted); margin-top: 14px; }
-.form-note a { color: var(--accent); font-weight: 600; }
+.form-note a { color: var(--accent-text); font-weight: 600; }
 
 .form-success { text-align: center; padding: 40px 20px; }
 .success-icon { font-size: 3rem; color: #28a745; margin-bottom: 16px; }
@@ -1327,7 +1347,7 @@ a.contact-value:hover { color: var(--accent); }
   line-height: 1.7;
   color: var(--text-light, #555);
 }
-.faq-item p a { color: var(--accent); font-weight: 600; text-decoration: none; }
+.faq-item p a { color: var(--accent-text); font-weight: 600; text-decoration: none; }
 .faq-item p a:hover { text-decoration: underline; }
 
 /* ── CTA Section ── */
